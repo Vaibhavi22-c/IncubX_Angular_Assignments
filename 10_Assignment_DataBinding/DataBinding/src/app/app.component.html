@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Binding Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-right">
+        <div  class="right-img">
+          <img src="assets/profile.png" alt="" id="profile">
+        </div>
+        <div class="nameandemail">
+          <p>{{rightcontent.username}}</p>
+          <p>{{rightcontent.email}}</p>
+        </div>
+      </div>
+    </div>
+      <h1><u>Simple Form</u></h1>
+      <div class="container">
+          <div class="content">
+            <div class="leftcontent">
+              <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" placeholder="select DOB" name="dob" [(ngModel)]="age">
+              </div>
+              <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" [(ngModel)]="age">
+              </div>
+              <div [ngStyle]="{'color': age < 18 ? 'red' : 'green'}">Please enter age greater than 18.</div>
+              <button (click)="CalculateAge()" class="btn1">Calculate Age</button><br>
+              <div [ngStyle]="{color: 'black'}">Calculated age is:{{age}}</div>
+            </div>
+            <div class="rightcontent">
+              <div class="form-group">
+                <label for="name">User Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter user name" name="name" [(ngModel)]="rightcontent.username">
+              </div>
+              <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" class="form-control" id="fname" placeholder="Can" [(ngModel)]="rightcontent.firstname">
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" class="form-control" id="lname" placeholder="Yaman" [(ngModel)]="rightcontent.lastname">
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="rightcontent.email">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn2" (click)="save()">SAVE</button>
+      </div>
+  </body>
+</html>

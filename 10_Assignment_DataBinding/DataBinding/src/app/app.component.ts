@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
   dob: any;
   age : any;
-
+  image="./assets/profile.png";
   rightcontent={
     username:'',
     firstname:'',
